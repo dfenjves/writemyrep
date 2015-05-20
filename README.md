@@ -1,12 +1,3 @@
----
-tags: kids, mvc
-languages: ruby
-type: interactive practice
----
+# Write My Rep
 
-##Sinatra Template
-
-Fork and clone this repository to use as a template for your project.
-
-
-
+An Application to make writing to your elected representatives as easy as possible
