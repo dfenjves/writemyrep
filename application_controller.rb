@@ -19,7 +19,15 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/representatives' do
-    params.to_s
+    @chosen_reps = []
+    params.each_key do |bioguide_id|
+    @chosen_reps << LegislatorFinder.new.find_by_bioguide_id(bioguide_id)
+    end
+    erb :template
+  end
+
+  post 'build' do
+    
   end
 
 end

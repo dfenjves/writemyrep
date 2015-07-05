@@ -7,7 +7,7 @@ class LegislatorFinder
 
   def find_by_bioguide_id(bioguide_id)
     url = "https://congress.api.sunlightfoundation.com/legislators?bioguide_id=#{bioguide_id}&apikey=#{ENV['SUNLIGHT_API_KEY']}"
-    HTTParty.get(url)['results']
+    HTTParty.get(url)['results'].first
   end
 
 end

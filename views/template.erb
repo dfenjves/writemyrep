@@ -1,0 +1,40 @@
+
+
+<form method="POST" action="/build">
+
+<% @chosen_reps.each_with_index do |rep, index| %>
+  <input type="hidden" name="rep<%=index%>" value='<%= rep['bioguide_id'] %>'>
+<% end %>
+
+<p>I write to you as a constituent expressing my 
+<select name="support_or_opposition">
+  <option value="support for">support for</option>
+  <option value="opposition">opposition to</option>
+</select>
+the upcoming legislation addressing 
+<input type="text" name="issue" placeholder="describe issue concisely" size="30">. This issue is of paramount interest to me because I am <input type="text" name="who_am_i" placeholder="a doctor, a teacher, a crime victim, a concerned citizen" size="50">. This issue directly impacts <input type="text" name="affected_parties" placeholder="my students, my profession, my neighborhood, my child, etc." size="55"></p>
+<p>
+I am primarily concerned about <input type="text" name="primary_concern" placeholder="describe major specific concern within the larger issue" size="50"> because <br>
+<textarea type="text" name="primary_details" rows="4" cols="50"></textarea>.
+</p>
+<p>
+Thank you for your consideration of my viewpoint on this matter. I believe it is an important issue, and would like to see the legislation <select name="outcome">
+  <option value="pass">pass</option>
+  <option value="fail">fail</option>
+  <option value="be amended">be amended</option>
+</select>.
+</p>
+<p>
+Sincerely,
+</p>
+<p>
+<input type="text" name="writer_name" placeholder="Your Name">
+<br>
+<input type="text" name="writer_address" placeholder="Your Address">
+<br>
+<input type="text" name="writer_phone" placeholder="Your Phone">
+<br>
+<input type="text" name="writer_email" placeholder="Your Email">
+</p>
+<input type="submit" value="build my letters">
+<form>
