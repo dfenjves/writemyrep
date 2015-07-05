@@ -1,34 +1,13 @@
-require 'pry'
-class Legislator_Finder
+class LegislatorFinder
 
-  def initialize(zipcode)
-    @zipcode = zipcode
-    url = "https://congress.api.sunlightfoundation.com/legislators/locate?zip=#{@zipcode}&apikey=#{ENV['SUNLIGHT_API_KEY']}"
-    puts url
-    @legislators =  HTTParty.get(url)['results']
+  def find_by_zip(zipcode)
+    url = "https://congress.api.sunlightfoundation.com/legislators/locate?zip=#{zipcode}&apikey=#{ENV['SUNLIGHT_API_KEY']}"
+    HTTParty.get(url)['results']
   end
 
-  def legislators
-    @legislators
+  def find_by_bioguide_id(bioguide_id)
+    url = "https://congress.api.sunlightfoundation.com/legislators?bioguide_id=#{bioguide_id}&apikey=#{ENV['SUNLIGHT_API_KEY']}"
+    HTTParty.get(url)['results']
   end
-
-  def junior_senator
-    legislators.select do |rep|
-      rep['chamber'] == 'senate'  && rep['state_rank'] == 'junior'
-    end.first
-  end
-
-  def senior_senator
-    legislators.select do |rep|
-      rep['chamber'] == 'senate' && rep['state_rank'] == 'senior'
-    end.first
-  end
-
-  def congressmen
-    legislators.select do |rep|
-      rep['chamber'] == 'house'
-    end
-  end
-
 
 end

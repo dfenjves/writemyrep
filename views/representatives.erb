@@ -1,0 +1,10 @@
+<h1> Who would you like to write to? </h1>
+
+<form>
+  <% @repinfo.each_with_index do |legislator, index| %>
+    <label for='<%= "legislator#{index}" %>'><%= "#{legislator['first_name']} #{legislator['last_name']} (#{legislator['chamber']})" %></label>
+    <input type="checkbox" name="legislators" value='<%= legislator['bioguide_id'] %>'>
+    <br>
+  <% end %>
+  <input type="submit">
+</form>
