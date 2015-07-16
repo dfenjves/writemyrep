@@ -20,7 +20,13 @@ class LetterBuilder
   end
 
   def salutation
-  
+    if @representative["title"] == "Sen"
+      "Dear Senator #{representative['last_name']}"
+    elsif @representative["title"] == "Rep" && @representative["gender"] == "F"
+      "Dear Congresswoman #{representative['last_name']}"
+    else
+      "Dear Congressman #{representative['last_name']}"
+    end    
   end
 
   def content(support_or_opposition, issue, who_am_i, affected_parties, primary_concern, details, outcome)

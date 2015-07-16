@@ -26,8 +26,8 @@ class ApplicationController < Sinatra::Base
     erb :template
   end
 
-  post 'build' do
-    
+  post '/build' do
+    puts params
   end
 
 end
