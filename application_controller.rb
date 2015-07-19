@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/build' do
-    puts params
+    @letter = LetterBuilder.new()
   end
 
 end
