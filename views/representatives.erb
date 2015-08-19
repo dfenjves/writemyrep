@@ -2,8 +2,8 @@
 
 <form method="post" action="/representatives">
   <% @repinfo.each_with_index do |legislator, index| %>
-    <input type="checkbox" name="<%= legislator['bioguide_id'] %>" id='<%= "legislator#{index}" %>'>
-    <label for='<%= "legislator#{index}" %>'><%= "#{legislator['first_name']} #{legislator['last_name']} (#{legislator['chamber']})" %></label>
+    <input type="radio" name="bioguide_id" value="<%= legislator['bioguide_id'] %>" id='legislator'>
+    <label for='legislator" %>'><%= "#{legislator['first_name']} #{legislator['last_name']} (#{legislator['chamber']})" %></label>
     <br>
   <% end %>
   <input type="submit">

@@ -1,0 +1,19 @@
+
+<%=@letter.to_address%>
+<p> <%= @letter.salutation %> </p>
+<form method="post" action='/build'>
+  <input type="hidden" name='bioguide_id' value="<%=@letter.bioguide_id%>">
+  <textarea name="content"></textarea>
+  <p>Sincerely,</p>
+  <p>
+  <input type="text" name="writer_name" placeholder="Your Name">
+  <br>
+  <input type="text" name="writer_address" placeholder="Your Address">
+  <br>
+  <input type="text" name="writer_phone" placeholder="Your Phone">
+  <br>
+  <input type="text" name="writer_email" placeholder="Your Email">
+  </p>
+  <input type="submit">
+</form>
+
